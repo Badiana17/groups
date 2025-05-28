@@ -1,3 +1,4 @@
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -7,14 +8,19 @@
 body {
   display: flex;
   place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(-45deg, #608BC1, #608BC1, #38a3a5, #6c5ce7);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
 }
 
+/* Root and page wrapper for centering */
 #root {
   width: 100%;
   min-height: 100vh;
@@ -26,17 +32,34 @@ body {
 
 .page-wrapper {
   width: 100%;
-  min-height: 120vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  background: linear-gradient(-45deg, #608BC1, #608BC1, #38a3a5, #6c5ce7);
-  background-size: 400% 400%; /* ✅ fixed */
-  animation: gradientFlow 15s ease infinite;
   padding: 20px;
 }
 
+.form-container {
+  background-color: #ffffff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.scrollable-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding-right: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Gradient animation */
 @keyframes gradientFlow {
   0% {
     background-position: 0% 50%;
@@ -49,16 +72,6 @@ body {
   }
 }
 
-.form-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
-  text-align: left;
-}
-
 .MuiButton-containedPrimary {
   background-color: #0072ff;
   color: white;
@@ -68,8 +81,16 @@ body {
   background-color: #00c6ff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .form-container {
     max-width: 90%;
+    padding: 20px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    max-width: 100%;
+    padding: 15px 20px;
   }
 }
